@@ -1,0 +1,14 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: url(../../img/home.jpg)  no-repeat center / cover;
+    height: 80vh;
+}
+
+.home-text {
+    color: white;
+    font-size: 50px;
+    margin: 120px 0 60px;
+}
+

@@ -1,0 +1,8 @@
+.recipe-card {
+    margin-bottom: 30px;
+    height: 625px;
+}
+
+.recipe-card:hover {
+    box-shadow: 0 0 7px rgba(0,0,0,0.5);
+}
