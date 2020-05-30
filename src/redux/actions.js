@@ -1,5 +1,5 @@
 import {api, apiKey} from '../api/api'
-import {GET_RECIPES} from './types'
+import {GET_RECIPES, GET_RECIPE_DETAILS} from './types'
 
 export function getRecipes(name) {
 
@@ -15,4 +15,19 @@ export function getRecipes(name) {
     }
    
   
+}
+
+export function getRecipeDetails(id) {
+   
+    return async function(dispatch) {
+        try {
+            const resp = await fetch(`${api}/recipes/${id}/information?apiKey=${apiKey}`)
+            const data = await resp.json()
+
+            dispatch({payload: data, type: GET_RECIPE_DETAILS})
+        } catch(error) {
+            console.log('error')
+        }
+       
+    }
 }

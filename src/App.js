@@ -9,6 +9,7 @@ import Footer from './components/Footer/Footer'
 import HomeComponent from './pages/Home/HomeComponent'
 import FavouriteRecipesComponent from "./pages/Favourite/FavouriteRecipes"
 import Recipes from './pages/Recipes/Recipes'
+import RecipeDetails from './pages/RecipeDetails/RecipeDetails'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact component={HomeComponent} path="/" />
           <Route exact component={FavouriteRecipesComponent} path="/favourite" />
           <Route exact component={Recipes} path="/recipes" />
+          <Route exact component={RecipeDetails} path="/recipe/:id" />
         </Switch>
        
         <Footer />

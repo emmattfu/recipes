@@ -1,14 +1,17 @@
-import { GET_RECIPES } from "./types"
+import { GET_RECIPES, GET_RECIPE_DETAILS } from "./types"
 
 
 const initialState = {
-    recipes: []
+    recipes: [],
+    detailedRecipe: {}
 }
 
 export default function dataReducer(state = initialState, action) {
     
     if (action.type === GET_RECIPES) {
         return {...state, recipes: action.payload}
+    } else if (action.type === GET_RECIPE_DETAILS) {
+        return {...state, detailedRecipe: action.payload}
     }
 
     return state

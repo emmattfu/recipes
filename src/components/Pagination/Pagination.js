@@ -1,4 +1,5 @@
 import React from 'react';
+import './Pagination.css'
 
 const Pagination = ({ recipesPerPage, totalRecipes, paginate }) => {
   const pageNumbers = [];
@@ -8,13 +9,13 @@ const Pagination = ({ recipesPerPage, totalRecipes, paginate }) => {
   }
 
   return (
-    <nav>
+    <nav className='d-flex'>
       <ul className='pagination'>
         {pageNumbers.map(number => (
           <li key={number} className='page-item'>
-            <a onClick={() => paginate(number)}  className='page-link'>
+            <button onClick={() => paginate(number)}  className='page-link'>
               {number}
-            </a>
+            </button>
           </li>
         ))}
       </ul>

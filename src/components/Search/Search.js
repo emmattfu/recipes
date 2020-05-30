@@ -12,8 +12,10 @@ function Search() {
   function onSubmitHandle(event) {
     event.preventDefault();
     dispatch(getRecipes(product));
-
+    event.target.value = ''
     setReirect(true);
+
+    
   }
 
   return (

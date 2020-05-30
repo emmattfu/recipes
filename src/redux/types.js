@@ -1,1 +1,2 @@
 export const GET_RECIPES = 'GET_RECIPES'
+export const GET_RECIPE_DETAILS = 'GET_RECIPE_DETAILS'
