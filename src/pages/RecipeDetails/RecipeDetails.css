@@ -1,0 +1,13 @@
+.recipe-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-details__image {
+    margin: 20px auto
+}
+
+.recipe-details__summary {
+    margin-top: 20px;
+}
+

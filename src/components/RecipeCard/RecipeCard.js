@@ -5,7 +5,7 @@ import './RecipeCard.css'
 
 
 function RecipeCard({ recipe }) {
-  console.log(recipe)
+
   const imgType = recipe.image.split('.')
   return (
     <Col xs={12} sm={6} md={4}>
