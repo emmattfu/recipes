@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import { Container, Row } from "react-bootstrap";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import Search from "../../components/Search/Search";
-import Pagination from '../../components/Pagination/Pagination'
+import Pagination from "../../components/Pagination/Pagination";
+import Loading from '../../components/Loading';
 import "./Recipes.css";
 
 function Recipes() {
@@ -15,18 +16,13 @@ function Recipes() {
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipe = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
-  const paginate = pageNumber => {
-    setCurrentPage(pageNumber)
-    window.scrollTo(0, 0)
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo(0, 0);
   };
 
   if (!recipes.length) {
-    return (
-      <Container>
-        <Search />
-        <h2>Loading...</h2>
-      </Container>
-    );
+    return <Loading />
   }
 
   return (

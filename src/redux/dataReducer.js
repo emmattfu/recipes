@@ -2,7 +2,7 @@ import { GET_RECIPES, GET_RECIPE_DETAILS, CLEAR_DETAILED_RECIPE } from "./types"
 
 
 const initialState = {
-    recipes: [],
+    recipes: JSON.parse(localStorage.getItem('recipes')) || [],
     detailedRecipe: {}
 }
 
