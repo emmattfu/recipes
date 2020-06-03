@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Container, Row } from "react-bootstrap";
 import Ingredient from "../../components/Ingredient/Ingredient";
 import "./RecipeDetails.css";
+import Loading from "../../components/Loading";
 
 function RecipeDetails({ match }) {
   const [id] = useState(match.params.id);
@@ -17,7 +18,7 @@ function RecipeDetails({ match }) {
   const recipe = useSelector((store) => store.detailedRecipe);
 
   if (!recipe) {
-    return <h1>Loading</h1>;
+    return <Loading />
   }
 
   console.log(recipe);

@@ -3,8 +3,8 @@
     flex-direction: column;
     text-align: center;
     background: url(../../img/home.jpg)  no-repeat center / cover;
-    min-height: 80vh;
-    min-height: -webkit-fill-available;
+    height: 80vh;
+   
 }
 
 .home-text {
