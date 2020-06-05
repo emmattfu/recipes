@@ -28,7 +28,7 @@ function Search() {
           placeholder="Choose your dish"
         />
       </form>
-      {redirect ? <Redirect to="/recipes" /> : ""}
+      {redirect ? <Redirect to="/recipes-result" /> : ""}
     </>
   );
 }
