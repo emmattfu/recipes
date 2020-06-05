@@ -11,10 +11,10 @@ function Search() {
 
   function onSubmitHandle(event) {
     event.preventDefault();
+    document.querySelector('.search-input').value = ''
     dispatch(getRecipes(product));
-    event.target.value = ''
+    
     setReirect(true);
-
     
   }
 

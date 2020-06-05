@@ -20,7 +20,8 @@ function RecipeCard({ recipe }) {
             bulk of the card's content.
           </Card.Text>
           <div className="recipe-card__buttons">
-            <img className="recipe-card__icon" src={heart} alt="heart"/>
+            {/* <img className="recipe-card__icon" src={heart} alt="heart"/> */}
+            <Button variant="primary">Add to favourite</Button>
             <NavLink to={`/recipe/${recipe.id}`}>
               <Button variant="primary">More info</Button>
             </NavLink>

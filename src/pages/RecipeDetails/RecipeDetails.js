@@ -3,6 +3,7 @@ import { getRecipeDetails, clearDetailedRecipe } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Row } from "react-bootstrap";
 import Ingredient from "../../components/Ingredient/Ingredient";
+import RecipeDetailsBlock from '../../components/RecipeDetailsBlock/RecipeDetailsBlock'
 import "./RecipeDetails.css";
 import Loading from "../../components/Loading";
 
@@ -18,26 +19,24 @@ function RecipeDetails({ match }) {
   const recipe = useSelector((store) => store.detailedRecipe);
 
   if (!recipe) {
-    return <Loading />
+    return <Loading />;
   }
 
   console.log(recipe);
 
   return (
-    <Container>
-      <div className="recipe-details">
-        <img
-          className="recipe-details__image"
-          src={`https://spoonacular.com/recipeImages/${recipe.id}-312x231.${recipe.imageType}`}
-          alt="dish"
-        />
-        <h2 className="recipe-details__title m-auto">{recipe.title}</h2>
-        <p
-          className="recipe-details__summary text-justify"
-          dangerouslySetInnerHTML={{ __html: recipe.summary }}
-        ></p>
+    <div className="recipe-details">
+      <img
+        className="recipe-details__image"
+        src={`https://spoonacular.com/recipeImages/${recipe.id}-312x231.${recipe.imageType}`}
+        alt="dish"
+      />
+      <h2 className="recipe-details__title m-auto">{recipe.title}</h2>
 
-        <div className="recipe-details__ingredients">
+      <RecipeDetailsBlock title="Summary" text={recipe.summary} color="#CFD2D7"/>     
+
+      <Container>
+        <div className="recipe-details__ingredients block">
           <h3>Ingredients</h3>
           <Row>
             {recipe.extendedIngredients?.map((ingredient, index) => {
@@ -45,12 +44,14 @@ function RecipeDetails({ match }) {
             })}
           </Row>
         </div>
-        <div className="recipe-details__">
-          <h3>Instructions</h3>
-          <p>{recipe.instructions}</p>
-        </div>
-      </div>
-    </Container>
+      </Container>
+      
+      <RecipeDetailsBlock title="Instructions" text={recipe.instructions} color="#CFD2D7"/>      
+      
+      {recipe.winePairing?.pairingText
+      ?  <RecipeDetailsBlock title="Is it good with wine?" text={recipe.winePairing.pairingText} color="white"/>
+    : null }
+    </div>
   );
 }
 

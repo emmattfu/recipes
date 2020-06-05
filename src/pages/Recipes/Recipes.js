@@ -21,18 +21,17 @@ function Recipes() {
     window.scrollTo(0, 0);
   };
 
-  if (!recipes.length) {
-    return <Loading />
-  }
+ 
 
   return (
     <Container>
       <div className="recipes">
         <Search />
         <Row>
-          {currentRecipe.map((el, i) => {
+          {!recipes ? <Loading /> : currentRecipe.map((el, i) => {
             return <RecipeCard recipe={el} key={i} />;
           })}
+         
         </Row>
       </div>
 

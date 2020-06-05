@@ -1,6 +1,6 @@
 .recipe-card {
     margin-bottom: 30px;
-    height: 475px;
+    height: 525px;
 
 }
 
@@ -17,4 +17,10 @@
 
 .recipe-card__icon {
     width: 15%;
+}
+
+
+
+.block {
+    padding: 15px 0;
 }
