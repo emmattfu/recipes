@@ -11,6 +11,7 @@ import FavouriteRecipesComponent from "./pages/Favourite/FavouriteRecipes"
 import Recipes from './pages/Recipes/Recipes'
 import RecipeDetails from './pages/RecipeDetails/RecipeDetails'
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -20,8 +21,9 @@ function App() {
         <Switch>
           <Route exact component={HomeComponent} path="/" />
           <Route exact component={FavouriteRecipesComponent} path="/favourite" />
-          <Route exact component={Recipes} path="/recipes-result" />
+          <Route exact component={Recipes} path="/recipes/result" />
           <Route exact component={RecipeDetails} path="/recipe/:id" />
+         
           <Redirect to="/" />
         </Switch>
        

@@ -31,7 +31,7 @@ function RecipeDetails({ match }) {
         src={`https://spoonacular.com/recipeImages/${recipe.id}-312x231.${recipe.imageType}`}
         alt="dish"
       />
-      <h2 className="recipe-details__title m-auto">{recipe.title}</h2>
+      <h2 className="recipe-details__title">{recipe.title}</h2>
 
       <RecipeDetailsBlock title="Summary" text={recipe.summary} color="#CFD2D7"/>     
 

@@ -1,5 +1,5 @@
 .search-input {
-    width: 80%;
+    width: 100%;
     align-self: center;
     height: 40px;
     border-radius: 5px;
@@ -8,10 +8,10 @@
     font-size: 16px;
     margin: 20px 0;
     animation-name: animated-width;
-    animation-duration: 2s;
+    animation-duration: 3s;
 }
 
 @keyframes animated-width {
     from {width: 0;}
-    to {width: 80%;}
+    to {width: 100%;}
   }

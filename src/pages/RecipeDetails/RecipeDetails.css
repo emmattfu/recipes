@@ -3,6 +3,10 @@
     flex-direction: column;
 }
 
+.recipe-details__title {
+    margin: 0 auto 20px;
+}
+
 .recipe-details__image {
     margin: 20px auto
 }
