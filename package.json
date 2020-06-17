@@ -1,6 +1,6 @@
 {
   "name": "recipe",
-  "homepage": "http://emmattfu.github.io/recipes",
+  "homepage": "https://emmattfu.github.io/recipes",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
