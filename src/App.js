@@ -14,7 +14,7 @@ import RecipeDetails from './pages/RecipeDetails/RecipeDetails'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <div className="App">
         <Header />
         

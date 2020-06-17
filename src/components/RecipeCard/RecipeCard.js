@@ -31,7 +31,7 @@ function RecipeCard({ recipe }) {
 
   function removeFavourite(event) {
   
-    const res = favourites.filter(el => event.target.value !== el.id)
+    const res = favourites.filter(el => el.id !== event.target.value )
     console.log(res)
     setIsFavourite(false)
     // localStorage.setItem("favourites", JSON.stringify(res));
