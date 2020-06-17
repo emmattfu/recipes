@@ -19,7 +19,7 @@ function App() {
         <Header />
         
         <Switch>
-          <Route exact component={HomeComponent} path="/" />
+          <Route exact component={HomeComponent} path={process.env.PUBLIC_URL + '/'} />
           <Route exact component={FavouriteRecipesComponent} path="/favourite" />
           <Route exact component={Recipes} path="/recipes/result" />
           <Route exact component={RecipeDetails} path="/recipe/:id" />
