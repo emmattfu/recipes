@@ -20,9 +20,9 @@ function App() {
         
         <Switch>
           <Route exact component={HomeComponent} path={process.env.PUBLIC_URL + '/'} />
-          <Route exact component={FavouriteRecipesComponent} path="/favourite" />
-          <Route exact component={Recipes} path="/recipes/result" />
-          <Route exact component={RecipeDetails} path="/recipe/:id" />
+          <Route exact component={FavouriteRecipesComponent} path={process.env.PUBLIC_URL + '/favourite'} />
+          <Route exact component={Recipes} path={process.env.PUBLIC_URL + '/recipes/result'}/>
+          <Route exact component={RecipeDetails} path={process.env.PUBLIC_URL + "/recipe/:id"} />
          
           <Redirect to="/" />
         </Switch>
