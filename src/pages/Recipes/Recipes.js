@@ -12,6 +12,7 @@ function Recipes() {
   const [recipesPerPage] = useState(12);
   const recipes = useSelector((state) => state.recipes);
 
+
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipe = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
@@ -20,8 +21,6 @@ function Recipes() {
     setCurrentPage(pageNumber);
     window.scrollTo(0, 0);
   };
-
- 
 
   return (
     <Container>

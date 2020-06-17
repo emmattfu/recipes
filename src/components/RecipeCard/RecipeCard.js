@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Col, Card, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./RecipeCard.css";
@@ -23,10 +23,20 @@ function RecipeCard({ recipe }) {
       return;
     }
 
-    favourites.push(recipe);
-    localStorage.setItem("favourites", JSON.stringify(favourites));
     dispatch(addFavourite(recipe));
+    localStorage.setItem("favourites", JSON.stringify([...favourites, recipe]));
+    setIsFavourite(true)
     ToastsStore.success("Recipe added to favourites");
+  }
+
+  function removeFavourite(event) {
+  
+    const res = favourites.filter(el => event.target.value !== el.id)
+    console.log(res)
+    setIsFavourite(false)
+    // localStorage.setItem("favourites", JSON.stringify(res));
+    // dispatch(removeFavourite(res))
+    // setIsFavourite(false)
   }
 
   return (
@@ -44,9 +54,13 @@ function RecipeCard({ recipe }) {
           </Card.Text>
           <div className="recipe-card__buttons">
             {/* <img className="recipe-card__icon" src={heart} alt="heart" onClick={addToFavourite}/> */}
-            <Button className="recipe-card__favourite" variant="primary" onClick={addToFavourite}>
-              {isFavourite ? "Remove favourite" : "Add to favorite"}
+            {isFavourite ? <Button className="recipe-card__favourite remove" variant="danger" onClick={removeFavourite} value={recipe.id}>
+              Remove favourite
             </Button>
+            : <Button className="recipe-card__favourite" variant="success" onClick={addToFavourite}>
+              Add to favourite
+            </Button>} 
+
             <NavLink to={`/recipe/${recipe.id}`}>
               <Button variant="primary">More info</Button>
             </NavLink>

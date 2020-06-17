@@ -1,4 +1,4 @@
-import { GET_RECIPES, GET_RECIPE_DETAILS, CLEAR_DETAILED_RECIPE, CLEAR_RECIPES, ADD_FAVOURITE } from "./types"
+import { GET_RECIPES, GET_RECIPE_DETAILS, CLEAR_DETAILED_RECIPE, CLEAR_RECIPES, ADD_FAVOURITE, REMOVE_FAVOURITE } from "./types"
 
 
 const initialState = {
@@ -19,6 +19,8 @@ export default function dataReducer(state = initialState, action) {
         return {...state, recipes: action.payload}
     } else if (action.type === ADD_FAVOURITE) {
         return {...state, favourites: [...state.favourites, action.payload]}
+    } else if (action.type === REMOVE_FAVOURITE) {
+        return {...state, favourites: action.payload}
     }
 
     return state

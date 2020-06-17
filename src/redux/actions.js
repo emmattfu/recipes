@@ -1,5 +1,5 @@
 import {api, apiKey} from '../api/api'
-import {GET_RECIPES, GET_RECIPE_DETAILS, CLEAR_DETAILED_RECIPE, CLEAR_RECIPES, ADD_FAVOURITE} from './types'
+import {GET_RECIPES, GET_RECIPE_DETAILS, CLEAR_DETAILED_RECIPE, CLEAR_RECIPES, ADD_FAVOURITE, REMOVE_FAVOURITE} from './types'
 
 export function getRecipes(name) {
 
@@ -46,4 +46,9 @@ export function clearRecipes() {
 export function addFavourite(recipe) {
 
     return {payload: recipe, type: ADD_FAVOURITE}
+}
+
+export function removeFavourite(favourites) {
+
+    return {payload: favourites, type: REMOVE_FAVOURITE}
 }
