@@ -8,7 +8,6 @@ function FavouriteRecipesComponent() {
 
   return (
     <Container>
-      <h1>FavouriteRecipeS component</h1>
         {favourites.map(el => <RecipeCard recipe={el}  key={el.id}/>)}
     </Container>
   );
