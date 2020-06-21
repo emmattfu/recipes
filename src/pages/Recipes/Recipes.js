@@ -5,6 +5,7 @@ import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import Search from "../../components/Search/Search";
 import Pagination from "../../components/Pagination/Pagination";
 import Loading from '../../components/Loading';
+import PageTitle from '../../components/PageTitle/PageTitle';
 import "./Recipes.css";
 
 function Recipes() {
@@ -26,6 +27,8 @@ function Recipes() {
     <Container>
       <div className="recipes">
         <Search />
+        <PageTitle text="Recipes for you" />
+
         <Row>
           {!recipes ? <Loading /> : currentRecipe.map((el, i) => {
             return <RecipeCard recipe={el} key={i} />;

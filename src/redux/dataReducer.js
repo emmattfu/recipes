@@ -20,7 +20,9 @@ export default function dataReducer(state = initialState, action) {
     } else if (action.type === ADD_FAVOURITE) {
         return {...state, favourites: [...state.favourites, action.payload]}
     } else if (action.type === REMOVE_FAVOURITE) {
-        return {...state, favourites: action.payload}
+        // return {...state, favourites: action.payload}
+        console.log(action.payload)
+        return state
     }
 
     return state

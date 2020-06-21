@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Card, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./RecipeCard.css";
@@ -12,6 +12,12 @@ function RecipeCard({ recipe }) {
   const [isFavourite, setIsFavourite] = useState(
     favourites.some((el) => el.id === recipe.id)
   );
+
+  const [removeId, setRemoveId] = useState(recipe.id)
+
+  // useEffect(() => {
+  //   removeFavourite(removeId)
+  // }, [removeId])
 
   const imgType = recipe.image.split(".");
 
@@ -29,13 +35,18 @@ function RecipeCard({ recipe }) {
     ToastsStore.success("Recipe added to favourites");
   }
 
-  function removeFavourite(event) {
-  
-    const res = favourites.filter(el => el.id !== event.target.value )
-    console.log(res)
+  // function removeHandle(e) {
+
+  //   removeFavourite(removeId)
+  // }
+
+  function removeFavourite() {
+    const res = favourites.filter(el => el.id !== +removeId )
+    console.log(res, removeId)
     setIsFavourite(false)
+    
+    dispatch(removeFavourite(res))
     // localStorage.setItem("favourites", JSON.stringify(res));
-    // dispatch(removeFavourite(res))
     // setIsFavourite(false)
   }
 
