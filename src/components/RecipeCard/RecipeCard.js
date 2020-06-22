@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Col, Card, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./RecipeCard.css";
@@ -53,14 +53,14 @@ function RecipeCard({ recipe }) {
             bulk of the card's content.
           </Card.Text>
           <div className="recipe-card__buttons">
-            {/* <img className="recipe-card__icon" src={heart} alt="heart" onClick={addToFavourite}/> */}
+            
             {isFavourite ? <Button className="recipe-card__favourite remove" variant="danger" onClick={removeFavouriteHandle} value={recipe.id}>
               Remove favourite
             </Button>
-            : <Button className="recipe-card__favourite" variant="success" onClick={addToFavourite}>
-              Add to favourite
-            </Button>} 
-
+            // : <Button className="recipe-card__favourite" variant="success" onClick={addToFavourite}>
+            //   Add to favourite
+            // </Button>} 
+            : <img className="recipe-card__icon" src={heart} alt="heart" onClick={addToFavourite}/>}
             <NavLink to={`/recipe/${recipe.id}`}>
               <Button variant="primary">More info</Button>
             </NavLink>
