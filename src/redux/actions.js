@@ -49,6 +49,6 @@ export function addFavourite(recipe) {
 }
 
 export function removeFavourite(favourites) {
-
+    
     return {payload: favourites, type: REMOVE_FAVOURITE}
 }

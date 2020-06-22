@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import "./RecipeCard.css";
 import heart from "../../icons/heart.png";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavourite } from "../../redux/actions";
+import { addFavourite, removeFavourite } from "../../redux/actions";
 import { ToastsContainer, ToastsStore } from "react-toasts";
 
 function RecipeCard({ recipe }) {
@@ -12,12 +12,6 @@ function RecipeCard({ recipe }) {
   const [isFavourite, setIsFavourite] = useState(
     favourites.some((el) => el.id === recipe.id)
   );
-
-  const [removeId, setRemoveId] = useState(recipe.id)
-
-  // useEffect(() => {
-  //   removeFavourite(removeId)
-  // }, [removeId])
 
   const imgType = recipe.image.split(".");
 
@@ -35,19 +29,14 @@ function RecipeCard({ recipe }) {
     ToastsStore.success("Recipe added to favourites");
   }
 
-  // function removeHandle(e) {
-
-  //   removeFavourite(removeId)
-  // }
-
-  function removeFavourite() {
-    const res = favourites.filter(el => el.id !== +removeId )
-    console.log(res, removeId)
-    setIsFavourite(false)
-    
+  function removeFavouriteHandle(e) {
+  
+    const res = favourites.filter(el => el.id !== +e.target.value )
     dispatch(removeFavourite(res))
-    // localStorage.setItem("favourites", JSON.stringify(res));
-    // setIsFavourite(false)
+    localStorage.setItem("favourites", JSON.stringify(res));
+    setIsFavourite(false)
+    ToastsStore.success("Recipe removed from favourites");
+    
   }
 
   return (
@@ -65,7 +54,7 @@ function RecipeCard({ recipe }) {
           </Card.Text>
           <div className="recipe-card__buttons">
             {/* <img className="recipe-card__icon" src={heart} alt="heart" onClick={addToFavourite}/> */}
-            {isFavourite ? <Button className="recipe-card__favourite remove" variant="danger" onClick={removeFavourite} value={recipe.id}>
+            {isFavourite ? <Button className="recipe-card__favourite remove" variant="danger" onClick={removeFavouriteHandle} value={recipe.id}>
               Remove favourite
             </Button>
             : <Button className="recipe-card__favourite" variant="success" onClick={addToFavourite}>

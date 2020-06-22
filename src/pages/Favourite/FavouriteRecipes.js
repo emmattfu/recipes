@@ -14,7 +14,7 @@ function FavouriteRecipesComponent() {
       <PageTitle text="Your favourite recipes" />
 
       <Row>
-      {favourites.length > 0 ? favourites.map(el => <RecipeCard recipe={el}  key={el.id}/>) 
+      {favourites.length > 0 ? favourites.map(el => <RecipeCard favourites={favourites} recipe={el}  key={el.id}/>) 
       : <h1>There are no recipes :(</h1>}
         {/* {favourites.map(el => <RecipeCard recipe={el}  key={el.id}/>)} */}
       </Row>
